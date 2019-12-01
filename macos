@@ -30,7 +30,7 @@ echo "installing homebrew"
 echo "brew installing stuff"
 brew install git 
 # yarn: without node because we'll get it from installing n later
-brew install yarn --without-node
+brew install yarn
 
 echo "installing node (via n-install)"
 curl -L https://git.io/n-install | bash
