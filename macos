@@ -43,7 +43,7 @@ echo "npm --version: $(npm --version)"
 echo "installing apps with brew cask"
 brew cask install firefox bettertouchtool \
 itsycal visual-studio-code 1password \
-discord telegram hyper \
+discord telegram hyper tig \
 spotify focus franz 
 
 echo "Generating an RSA token for GitHub"
