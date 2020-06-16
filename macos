@@ -10,6 +10,8 @@
 # settings we’re about to change
 osascript -e 'tell application "System Preferences" to quit'
 
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
+
 # Ask for the administrator password upfront
 sudo -v
 
@@ -43,9 +45,12 @@ echo "npm --version: $(npm --version)"
 echo "installing apps with brew cask"
 brew cask install firefox bettertouchtool \
 itsycal dozer visual-studio-code 1password \
-discord telegram hyper tig alfred insomnia \
-spotify focus franz node git heroku heroku-node \
+discord telegram hyper alfred insomnia \
+spotify focus franz \
 runjs rescuetime
+
+echo "installing apps with brew install"
+brew install tig node git heroku heroku-node
 
 echo "Generating an RSA token for GitHub"
 mkdir -p ~/.ssh
@@ -87,14 +92,6 @@ defaults write com.apple.LaunchServices LSQuarantine -bool false
 # Disable the crash reporter
 defaults write com.apple.CrashReporter DialogType -string "none"
 
-
-# Reveal IP address, hostname, OS version, etc. when clicking the clock
-# in the login window
-sudo defaults write /Library/Preferences/com.apple.loginwindow AdminHostInfo HostName
-
-# Disable Notification Center and remove the menu bar icon
- launchctl unload -w /System/Library/LaunchAgents/com.apple.notificationcenterui.plist 2> /dev/null
-
 # Disable automatic capitalization as it’s annoying when typing code
 defaults write NSGlobalDomain NSAutomaticCapitalizationEnabled -bool false
 
@@ -115,7 +112,6 @@ defaults write NSGlobalDomain NSAutomaticSpellingCorrectionEnabled -bool false
 # Trackpad, mouse, keyboard, Bluetooth accessories, and input                 #
 ###############################################################################
 
-
 # Disable press-and-hold for keys in favor of key repeat
 defaults write NSGlobalDomain ApplePressAndHoldEnabled -bool false
 
@@ -134,11 +130,9 @@ launchctl unload -w /System/Library/LaunchAgents/com.apple.rcd.plist 2> /dev/nul
 defaults write com.apple.screensaver askForPassword -int 1
 defaults write com.apple.screensaver askForPasswordDelay -int 0
 
-
 ###############################################################################
 # Finder                                                                      #
 ###############################################################################
-
 
 # Finder: show hidden files by default
 #defaults write com.apple.finder AppleShowAllFiles -bool true
