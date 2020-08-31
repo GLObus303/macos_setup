@@ -46,7 +46,7 @@ echo "installing apps with brew cask"
 brew cask install firefox bettertouchtool \
 itsycal dozer visual-studio-code 1password \
 discord telegram hyper alfred insomnia \
-spotify focus franz brave-browser\
+spotify focus franz brave-browser google-chrome \
 runjs rescuetime
 
 echo "installing apps with brew install"
