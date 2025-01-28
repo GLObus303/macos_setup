@@ -19,7 +19,6 @@ sudo -v
 while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 
 
-
 echo "Hello $(whoami)! Let's get you set up."
 
 echo "mkdir -p $(HOME)/code"
@@ -33,21 +32,20 @@ echo "brew installing stuff"
 brew install git 
 # yarn: without node because we'll get it from installing n later
 brew install yarn
-
-echo "installing node (via n-install)"
-curl -L https://git.io/n-install | bash
+brew install nvm
 
 echo "node --version: $(node --version)"
 echo "npm --version: $(npm --version)"
 
-
-
 echo "installing apps with brew cask"
-brew cask install firefox bettertouchtool \
+brew cask install firefox \
 itsycal dozer visual-studio-code 1password \
-discord telegram hyper alfred insomnia \
-spotify focus franz brave-browser google-chrome \
-runjs rescuetime
+discord telegram hyper alfred postman \
+spotify google-chrome cursor \
+runjs rescuetime rambox orbstack pixelsnap \
+freedom cleanshot figma sequel-ace steam \
+mos 
+
 
 echo "installing apps with brew install"
 brew install tig node git heroku heroku-node docker
@@ -61,9 +59,7 @@ eval "$(ssh-agent -s)"
 echo "run 'pbcopy < ~/.ssh/id_rsa.pub' and paste that into GitHub"
 
 
-
 echo "making system modifications:"
-
 
 
 ###############################################################################
@@ -77,7 +73,6 @@ sudo nvram SystemAudioVolume=" "
 # Always show scrollbars
 # defaults write NSGlobalDomain AppleShowScrollBars -string "Always"
 # Possible values: `WhenScrolling`, `Automatic` and `Always`
-
 
 
 # Automatically quit printer app once the print jobs complete
@@ -134,9 +129,6 @@ defaults write com.apple.screensaver askForPasswordDelay -int 0
 # Finder                                                                      #
 ###############################################################################
 
-# Finder: show hidden files by default
-#defaults write com.apple.finder AppleShowAllFiles -bool true
-
 # Finder: show all filename extensions
 defaults write NSGlobalDomain AppleShowAllExtensions -bool true
 
@@ -168,11 +160,6 @@ defaults write com.apple.dock autohide -bool true
 # sudo ln -sf "/Applications/Xcode.app/Contents/Developer/Applications/Simulator.app" "/Applications/Simulator.app"
 # sudo ln -sf "/Applications/Xcode.app/Contents/Developer/Applications/Simulator (Watch).app" "/Applications/Simulator (Watch).app"
 
-# Add a spacer to the left side of the Dock (where the applications are)
-#defaults write com.apple.dock persistent-apps -array-add '{tile-data={}; tile-type="spacer-tile";}'
-# Add a spacer to the right side of the Dock (where the Trash is)
-#defaults write com.apple.dock persistent-others -array-add '{tile-data={}; tile-type="spacer-tile";}'
-
 
 
 ###############################################################################
@@ -194,30 +181,6 @@ defaults write com.apple.Safari HomePage -string "about:blank"
 defaults write com.apple.Safari IncludeDevelopMenu -bool true
 defaults write com.apple.Safari WebKitDeveloperExtrasEnabledPreferenceKey -bool true
 defaults write com.apple.Safari com.apple.Safari.ContentPageGroupIdentifier.WebKit2DeveloperExtrasEnabled -bool true
-
-# Warn about fraudulent websites
-defaults write com.apple.Safari WarnAboutFraudulentWebsites -bool true
-
-# Disable plug-ins
-defaults write com.apple.Safari WebKitPluginsEnabled -bool false
-defaults write com.apple.Safari com.apple.Safari.ContentPageGroupIdentifier.WebKit2PluginsEnabled -bool false
-
-# Disable Java
-defaults write com.apple.Safari WebKitJavaEnabled -bool false
-defaults write com.apple.Safari com.apple.Safari.ContentPageGroupIdentifier.WebKit2JavaEnabled -bool false
-
-# Block pop-up windows
-defaults write com.apple.Safari WebKitJavaScriptCanOpenWindowsAutomatically -bool false
-defaults write com.apple.Safari com.apple.Safari.ContentPageGroupIdentifier.WebKit2JavaScriptCanOpenWindowsAutomatically -bool false
-
-# Disable auto-playing video
-defaults write com.apple.Safari WebKitMediaPlaybackAllowsInline -bool false
-defaults write com.apple.SafariTechnologyPreview WebKitMediaPlaybackAllowsInline -bool false
-defaults write com.apple.Safari com.apple.Safari.ContentPageGroupIdentifier.WebKit2AllowsInlineMediaPlayback -bool false
-defaults write com.apple.SafariTechnologyPreview com.apple.Safari.ContentPageGroupIdentifier.WebKit2AllowsInlineMediaPlayback -bool false
-
-# Enable “Do Not Track”
-defaults write com.apple.Safari SendDoNotTrackHTTPHeader -bool true
 
 ###############################################################################
 # Spotlight                                                                   #
