@@ -48,7 +48,7 @@ mos
 
 
 echo "installing apps with brew install"
-brew install tig node git heroku heroku-node docker
+brew install tig git
 
 echo "Generating an RSA token for GitHub"
 mkdir -p ~/.ssh
