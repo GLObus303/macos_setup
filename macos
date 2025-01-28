@@ -34,6 +34,8 @@ brew install git
 brew install yarn
 brew install nvm
 
+nvm install --lts
+
 echo "node --version: $(node --version)"
 echo "npm --version: $(npm --version)"
 
