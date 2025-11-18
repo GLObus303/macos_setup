@@ -40,8 +40,8 @@ echo "node --version: $(node --version)"
 echo "npm --version: $(npm --version)"
 
 echo "installing apps with brew cask"
-brew cask install firefox \
-itsycal dozer visual-studio-code 1password \
+brew install --cask  firefox \
+itsycal visual-studio-code 1password \
 discord telegram hyper alfred postman \
 spotify google-chrome cursor \
 runjs rescuetime rambox orbstack pixelsnap \
