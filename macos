@@ -44,8 +44,8 @@ brew install --cask  firefox \
 itsycal visual-studio-code 1password \
 discord telegram hyper alfred postman \
 spotify google-chrome cursor \
-runjs rescuetime rambox orbstack pixelsnap \
-freedom cleanshot figma sequel-ace steam \
+runjs rescuetime rambox pixelsnap \
+cleanshot figma sequel-ace steam \
 mos 
 
 
